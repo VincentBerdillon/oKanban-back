@@ -1,0 +1,102 @@
+##VCRest Client
+
+### Récupérer toutes les listes
+GET http://localhost:8000/lists
+
+### Ajouter une liste
+POST http://localhost:8000/lists
+Content-Type: application/json
+
+{
+    "name" : "Liste 3",
+    "position" : 2 
+}
+
+### Récupérer une liste en particulier
+GET http://localhost:8000/lists/2
+
+### Mettre à jour une liste en particulier
+PATCH http://localhost:8000/lists/3
+Content-Type: application/json
+
+{
+    "name" : "Liste test"
+}
+
+### Supprimer une liste en particulier
+DELETE http://localhost:8000/lists/8
+
+
+
+### Récupérer toutes les cartes d'une liste
+GET http://localhost:8000/lists/3/cards
+
+### Créer une carte
+POST  http://localhost:8000/cards
+Content-Type: application/json
+
+{
+    "title" : "Carte 5" ,
+    "position" : 2,
+    "color" : "#B0B",
+    "list_id" : 2
+}
+
+### Récupérer une carte en particulier
+GET http://localhost:8000/cards/3
+
+### Updater une carte
+PATCH http://localhost:8000/cards/5
+Content-Type: application/json
+
+{
+    "title" : "Carte test",
+    "position" : 1,
+    "color" : "#ffff",
+    "list_id" : 2
+}
+
+### Supprimer une carte en particulier
+DELETE http://localhost:8000/cards/5
+
+
+
+### Récupérer tous les tags
+GET http://localhost:8000/tags
+
+### Créer un tag
+POST  http://localhost:8000/tags
+Content-Type: application/json
+
+{
+    "name" : "todo",
+    "color": "#F0F"
+}
+
+### Récupérer un tag en particulier
+GET http://localhost:8000/tags/1
+
+### Updater un tag
+PATCH http://localhost:8000/tags/4
+Content-Type: application/json
+
+{
+    "name" : "Todos los tags",
+    "color": "#B0B"
+}
+
+### Supprimer un tag en particulier
+DELETE http://localhost:8000/tags/4
+
+
+
+### ajouter un tag à une carte en particulier
+POST  http://localhost:8000/cards/2/tags
+Content-Type: application/json
+
+{
+    "tag_id": 1
+}
+
+### supprimer un tag d'une carte
+DELETE http://localhost:8000/cards/2/tags/1
